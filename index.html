@@ -8,171 +8,82 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --primary-accent: #007bff;
-            --dark-bg: #121212;
-            --dark-bg-secondary: #1e1e1e;
-            --light-text: #f4f4f4;
-            --secondary-text: #aaaaaa;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--dark-bg);
-            color: var(--light-text);
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .container {
-            max-width: 600px;
-            width: 100%;
-            padding: 3rem 1.5rem;
-            background: var(--dark-bg-secondary);
-            border-radius: 12px;
-            border: 1px solid #333;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            text-align: left; 
-        }
-        
-        .logo {
-            font-size: 2rem;
-            font-weight: 900;
-            color: var(--light-text);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .status-icon {
-            color: var(--primary-accent);
-            display: block;
-            margin: 0 auto 1.5rem auto;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 2rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-            color: var(--light-text);
-            text-align: center;
-        }
-        
-        h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--light-text);
-            text-align: center;
-        }
-
-        .intro-text p {
-            font-size: 1.1rem;
-            color: var(--secondary-text);
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .intro-text strong {
-            color: var(--light-text);
-            font-weight: 700;
-        }
-
-        input[type="text"], 
-        input[type="email"], 
-        input[type="tel"], 
-        textarea {
-            width: 100%; 
-            padding: 10px; 
-            border-radius: 4px; 
-            border: 1px solid #555; 
-            background: #333; 
-            color: #fff;
-            font-size: 1rem;
-            font-family: inherit;
-        }
-        
-        label {
-            display: block; 
-            margin-bottom: 0.5rem; 
-            color: var(--light-text);
-            font-weight: 700;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 0.8rem 1.8rem;
-            background: var(--primary-accent);
-            color: #fff;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: opacity 0.3s ease;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn:hover {
-            opacity: 0.85;
-        }
-        
-        .form-section {
-            padding-top: 2rem;
-            border-top: 1px solid #333;
-            margin-top: 1.5rem;
-        }
-        
-        #form-success-message {
-            text-align: center; 
-            padding: 40px 20px;
-        }
-        #form-success-message svg {
-            color: var(--primary-accent); 
-            margin-bottom: 1.5rem;
-        }
-        #form-success-message h2 {
-            color: var(--light-text); 
-            margin-bottom: 1rem;
-        }
-        #form-success-message p {
-            color: var(--secondary-text);
-        }
-
-        @media (min-width: 600px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-        }
-    </style>
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
         <a href="#" class="logo">Mark Dudley</a>
 
+        <img src="images/profile.png" alt="DP" class="profile-pic">
+
         <h1>A Personal Partner for Your Digital Needs</h1>
         <div class="intro-text">
-	<p>A new site is being prepared to better present my services. For business enquiries related to web design, managed web services, or drone photography, please use the contact form below.</p>
+	        <p>A new site is being prepared to better present my services. For business enquiries related to Web Design, Managed Web Services, or Drone Photography, please use the contact form below.</p>
+        </div>
+        
+        <div class="latest-previews">
+            <div class="preview-header">
+                <h3>In The Works: Some of My Latest Projects</h3>
+            </div>
+            
+            <div class="preview-wrapper">
+                
+                <button id="arrow-left" class="scroll-arrow" onclick="scrollPreviews('left')">
+                    &lt;
+                </button>
+                <button id="arrow-right" class="scroll-arrow" onclick="scrollPreviews('right')">
+                    &gt;
+                </button>
+
+                <div class="preview-grid" id="preview-carousel">
+                    
+                    <a href="https://www.hotchocshots.co.uk" target="_blank" class="preview-card">
+                        <img src="images/hotchocshots.png" alt="Bespoke E-commerce Design Preview" style="object-fit: cover;">
+                        <div class="preview-content">
+                            <span class="preview-tag" style="margin-right: 6px;">Web Design</span>
+							<span class="preview-tag" style="background: #ffc107; color: #121212;">Managed Service</span>
+                            <h4>Hot Choc Shots</h4>
+                            <p>A fully responsive e-commerce website allowing customers to view the menu, order gourmet fudge and hot chocolate sticks, and enjoy a smooth experience on desktop and mobile.</</p>
+                        </div>
+                    </a>
+                    
+                    <a href="https://www.carlannisonpaving.co.uk" target="_blank" class="preview-card">
+                        <img src="images/carlannison.png" alt="Carl Annison Paving Preview" style="object-fit: cover;">
+                        <div class="preview-content">
+                            <span class="preview-tag" style="margin-right: 6px;">Web Design</span>
+							<span class="preview-tag" style="background: #ffc107; color: #121212;">Managed Service</span>
+                            <h4>Carl Annison Paving</h4>
+                            <p>A fully responsive website showcasing paving and construction services, project galleries, and clear contact options. Optimised for desktop and mobile for a smooth browsing experience.</p>
+                        </div>
+                    </a>
+                    <a href="images/finestfoods.png" target="_blank" class="preview-card">
+                        <img src="images/finestfoods.png" alt="Preview of the simple, fast static website for Finest Foods, focused on product lists and ordering forms." style="object-fit: cover;">
+                        <div class="preview-content">
+                            <span class="preview-tag">Web Design</span>
+                            <h4>Finest Foods</h4>
+                          <p>A simple static website showcasing products, prices, and downloadable lists. Customers select items via an ordering form, which is sent directly to the supplier for fulfilment and invoicing, keeping the site fast and straightforward.</p></p>
+                        </div>
+					<a href="https://www.angliandrones.co.uk" target="_blank" class="preview-card">
+                        <img src="images/angliandrones.png" alt="Anglian Drones" style="object-fit: cover;">
+                        <div class="preview-content">
+							<span class="preview-tag" style="margin-right: 6px;">Web Design</span>
+							<span class="preview-tag" style="background: #ffc107; color: #121212;">Managed Service</span>
+                            <h4>Anglian Drones</h4>
+                          <p>Combining web development with aerial experience to build a network for East of England pilots. Features include community engagement tools and partnership integration to promote safe flying.</p></p>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
         
 
         <div class="form-section">
+		<div class="emergency-notice">
+            <p><strong>⚠️ Urgent Migration & Recovery</strong><br>
+                Experiencing critical downtime or unreliable hosting? I can assist you with priority migration services to restore your stability.</p>
+            </div>
             <h2>Let's Talk</h2>
             
             <form 
@@ -220,36 +131,7 @@
         </div>
     </div>
 
-    <script>
-        async function handleFormSubmit(event) {
-            event.preventDefault();
-            
-            const form = document.getElementById('contact-form');
-            const statusDiv = document.getElementById('form-success-message');
-
-            const submitButton = form.querySelector('button[type="submit"]');
-            submitButton.textContent = 'Sending...';
-            submitButton.disabled = true;
-
-            const response = await fetch(form.action, {
-                method: form.method,
-                body: new FormData(form),
-                headers: {
-                    'Accept': 'application/json'
-                }
-            });
-
-            if (response.ok) {
-                form.style.display = 'none';
-                statusDiv.style.display = 'block';
-                setTimeout(() => form.reset(), 500);
-            } else {
-                alert('Oops! There was an issue sending your form. Please check your details or email me directly.');
-                submitButton.textContent = 'Send Inquiry';
-                submitButton.disabled = false;
-            }
-        }
-    </script>
+    <script src="scripts.js" defer></script>
 
 </body>
 </html>
