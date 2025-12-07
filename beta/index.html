@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en-GB"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Dudley - Bespoke Web Design & Aerial Videography</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        
+        :root {
+            --primary-accent: #007bff;
+            --dark-bg: #121212;
+            --dark-bg-secondary: #1e1e1e;
+            --light-text: #f4f4f4;
+            --secondary-text: #aaaaaa;
+            --nav-height: 70px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh;
+        }
+        
+        /* Utility class to disable body scroll when modal is open */
+        body.modal-open {
+            overflow: hidden;
+        }
+        
+        main {
+            flex-grow: 1; 
+        }
+
+        h1, h2, h3, h4 {
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        h1 { font-size: 2.5rem; font-weight: 900; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; color: var(--light-text); } 
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--secondary-text);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        a {
+            color: var(--primary-accent);
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background: var(--primary-accent);
+            color: #fff;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+            border: none; /* Ensure buttons in forms don't have default borders */
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+        }
+
+        .btn-secondary {
+            background: #fff;
+            color: var(--dark-bg);
+        }
+        
+        .main-header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(18, 18, 18, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            height: var(--nav-height);
+            border-bottom: 1px solid #333;
+        }
+        
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--light-text);
+        }
+
+        .nav-links {
+            display: none;
+            list-style: none;
+        }
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+        .nav-links a {
+            color: var(--light-text);
+            font-weight: 700;
+        }
+        .nav-links a.btn {
+            color: #fff;
+        }
+
+        .hamburger {
+            display: block;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        .hamburger svg {
+            stroke: var(--light-text);
+        }
+
+        .mobile-nav {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100vh;
+            background: var(--dark-bg);
+            z-index: 99;
+            transition: left 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .mobile-nav.open {
+            left: 0;
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+            text-align: center;
+        }
+        
+        .mobile-nav-links li {
+            margin-bottom: 2rem;
+        }
+        
+        .mobile-nav-links a {
+            color: var(--light-text);
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .mobile-nav-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+        }
+        .mobile-nav-close svg {
+            stroke: var(--light-text);
+        }
+
+        #hero {
+            background-image: 
+                linear-gradient(rgba(18, 18, 18, 0.6), rgba(18, 18, 18, 0.6)), 
+                url('images/hero.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            height: 90vh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1.5rem;
+        }
+
+
+        #hero h1 {
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        #hero p {
+            font-size: 1.25rem;
+            color: var(--light-text);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--dark-bg-secondary);
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            border: 1px solid #333;
+            /* FIX: Ensure content inside the card takes up vertical space */
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* FIX: Ensure content list grows to even out card heights */
+        .service-card ul {
+            flex-grow: 1; 
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+        
+        .service-card h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card li {
+            color: var(--secondary-text);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .service-card li:last-child {
+            margin-bottom: 0;
+        }
+        
+        .service-card li svg {
+            stroke: var(--primary-accent);
+            min-width: 20px;
+            margin-right: 0.75rem;
+            margin-top: 0.15rem;
+        }
+
+        .service-card li div {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.5;
+        }
+
+        .service-card li strong {
+            color: var(--light-text);
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        
+        .service-card li span {
+            color: var(--secondary-text);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .portfolio-card {
+            background: var(--dark-bg-secondary);
+            border-radius: 8px;
+            border: 1px solid #333;
+            overflow: hidden;
+            cursor: pointer; 
+        }
+        
+        .portfolio-card img {
+            border-radius: 8px 8px 0 0;
+            display: block;
+            transition: transform 0.3s ease;
+            height: 200px; 
+            width: 100%; 
+            object-fit: cover; 
+        }
+        
+        .portfolio-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+
+        .portfolio-tag {
+            display: inline-block;
+            background: var(--primary-accent);
+            color: #fff;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        
+        .portfolio-card h3 {
+            color: var(--light-text);
+            margin: 0;
+            margin-bottom: 0.5rem;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .testimonial-card {
+            background: var(--dark-bg-secondary);
+            padding: 2.5rem 2rem;
+            border-left: 5px solid var(--primary-accent);
+            border-radius: 8px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-card p {
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--light-text);
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-card .author {
+            font-weight: 700;
+            color: var(--primary-accent);
+            font-style: normal;
+        }
+
+        #cta {
+            background: var(--primary-accent);
+            text-align: center;
+        }
+        
+        #cta h2 {
+            color: #fff;
+        }
+        #cta p {
+            color: #fff;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+        }
+        
+        #cta .btn {
+            background: #fff;
+            color: var(--dark-bg);
+            cursor: pointer; 
+        }
+
+        footer {
+            padding: 4rem 0 2rem 0;
+            background: var(--dark-bg-secondary);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .footer-col-1 p {
+            max-width: 300px;
+            margin: 1rem auto;
+        }
+        
+        .footer-col h4 {
+            color: var(--light-text);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-col a {
+            color: var(--secondary-text);
+            transition: color 0.3s ease;
+        }
+        .footer-col a:hover {
+            color: var(--light-text);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 200;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 90%;
+            max-width: 900px;
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+        
+        #contact-modal .modal-content,
+        #technical-modal .modal-content,
+        #drone-technical-modal .modal-content {
+            max-width: 500px;
+            padding: 30px;
+            background: var(--dark-bg-secondary);
+            border-radius: 8px;
+        }
+
+        #technical-modal .modal-content,
+        #drone-technical-modal .modal-content {
+            max-width: 700px;
+        }
+        
+        #technical-modal h4,
+        #drone-technical-modal h4 {
+            color: var(--primary-accent);
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 0.5rem;
+        }
+        
+        #technical-modal ul,
+        #drone-technical-modal ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        #technical-modal li,
+        #drone-technical-modal li {
+            margin-bottom: 0.75rem;
+            color: var(--secondary-text);
+        }
+        #technical-modal strong,
+        #drone-technical-modal strong {
+            color: var(--light-text);
+            font-weight: 700;
+        }
+
+        .modal-content input[type="text"], 
+        .modal-content input[type="email"], 
+        .modal-content input[type="tel"], 
+        .modal-content textarea {
+            width: 100%; 
+            padding: 10px; 
+            border-radius: 4px; 
+            border: 1px solid #555; 
+            background: #333; 
+            color: #fff;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        
+        .modal-content label {
+            display: block; 
+            margin-bottom: 0.5rem; 
+            color: var(--light-text);
+            font-weight: 700;
+        }
+
+
+        #modal-caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .modal-close:hover,
+        .modal-close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        @keyframes zoom {
+            from {transform:scale(0)} 
+            to {transform:scale(1)}
+        }
+        
+        @media (min-width: 768px) {
+            h1 { font-size: 3.5rem; }
+            h2 { font-size: 2.5rem; }
+
+            #hero {
+                background-image: 
+                    linear-gradient(rgba(18, 18, 18, 0.6), rgba(18, 18, 18, 0.6)), 
+                    url('https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'), 
+                    url('images/hero.jpg');
+                    
+                background-size: 
+                    cover,
+                    50% 100%,
+                    50% 100%;
+                    
+                background-position: 
+                    center,
+                    left center,
+                    right center;
+            }
+
+            .hamburger, .mobile-nav {
+                display: none;
+            }
+            .nav-links {
+                display: flex;
+                align-items: center;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr 1fr 1fr; 
+            }
+            .portfolio-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+                text-align: left;
+            }
+            .footer-col-1 p {
+                margin: 1rem 0;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+        
+        @media only screen and (max-width: 700px){
+            .modal-content {
+                width: 100%;
+            }
+        }
+        
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .services-grid {
+                grid-template-columns: 1fr 1fr; 
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="#hero" class="logo">Mark Dudley</a>
+
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Work</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="login.html" class="btn">Client Portal</a></li>
+            </ul>
+
+            <button class="hamburger" id="hamburger-btn" aria-label="Open navigation menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 6H20M4 12H20M4 18H20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <nav class="mobile-nav" id="mobile-nav-menu">
+        <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close navigation menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18M6 6L18 18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <ul class="mobile-nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Work</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="#about">About</a></li>
+            <a href="login.html" class="btn">Client Portal</a>
+        </ul>
+    </nav>
+
+
+    <main>
+
+        <section id="hero">
+            <h1>Bespoke Web Design & Certified Aerial Photography.</h1>
+            <p>I am your dedicated digital partner for high-performance bespoke websites, offering stunning 4K aerial visuals across the East of England and beyond.</p>
+            <a href="#portfolio" class="btn">View My Work</a>
+        </section>
+		<section id="about" class="section">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image">
+                        <img src="images/profile.png" alt="Professional headshot of Mark Dudley, a web designer and drone pilot based in Norfolk.">
+					</div>
+					<div class="about-content">
+                        <h2>A Personal Partner for Your Digital Needs</h2>
+                        <p>I’ve loved technology for as long as I can remember. It’s shaped the way I think, work, and create. My vision is simple: to explore what’s possible in the digital world and build things that push boundaries.</p>
+                        <p>I’m Mark Dudley. Everything I do is driven by curiosity, creativity, and a desire to connect ideas with reliable, high-quality solutions, whether that's delivering a robust e-commerce platform or capturing a unique property perspective from above.</p>
+                    </div>
+                </div>
+        </section>
+        <section id="services" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Digital Solutions, From Ground to Cloud.</h2>
+                </div>
+                
+                <div class="services-grid"> 
+                    
+                    <div class="service-card">
+                        <h3>Bespoke Static Website Design & Development</h3>
+                        
+                        <p>I design and build fast, responsive, and modern static websites for start-ups and small businesses. I focus on a clean, professional finish that works perfectly on every device.</p>
+                        
+                        <ul>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <div>
+                                    <strong>Truly Bespoke Design:</strong>
+                                    <span>A static site built entirely to your unique requirements, from concept to completion.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <div>
+                                    <strong>Start-Ups & Small Business Ready:</strong>
+                                    <span>Clear, high-performance static websites designed to get you online quickly and effectively.</span>
+                                    
+                                </div>
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <div>
+                                    <strong>Simple File Handover:</strong>
+                                    <span>The website files are provided directly to you for self-hosting on your chosen platform.</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3>Fully Managed Digital Presence & Hosting</h3>
+                        <p>Don't worry about the tech. I manage all the moving parts, keeping your site secure, fast, and always online.</p>
+                        
+                        <ul>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <div>
+                                    <strong>Includes Bespoke Static Design:</strong>
+                                    <span>Full design and development of your custom static website, built from concept to launch.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <div>
+                                    <strong>Hosting, Security & Renewals:</strong>
+                                    <span>Fast, reliable hosting and I handle the annual domain and security certificate renewals.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <div>
+                                    <strong>Optional CMS & E-commerce:</strong>
+                                    <span>Need a blog or online shop? I build and manage dynamic sites using platforms like WordPress.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <div>
+                                    <strong>Professional Email (Optional):</strong>
+                                    <span>Set up custom business email (you@yourdomain.co.uk) with an easy Microsoft 365 upgrade option.</span>
+                                </div>
+                            </li>
+                             <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <div>
+                                    <strong>Updates & Priority Support:</strong>
+                                    <span>Includes regular content backups, technical monitoring, security fixes, and direct help when you need it.</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <p style="text-align: center; margin-top: 1.5rem;"><a href="#" class="technical-details-btn" style="background: none; color: var(--primary-accent); padding: 0; display: inline-block;">View FAQs and Technical Specifications →</a></p>
+                    </div>
+
+                    <div class="service-card">
+                        <h3>Licensed Drone Photography & 4K Video</h3>
+                        <p>I provide high-quality aerial photography and 4K video for property, projects, marketing, or events. Delivered safely, professionally, and ready to use.</p>
+                        
+                        <ul>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <div>
+                                    <strong>Fully Insured & CAA A2 CofC Qualified:</strong>
+                                    <span>Safe and compliant commercial operations for every job.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <div>
+                                    <strong>High-Quality Drone Footage:</strong>
+                                    <span>Crisp 4K video and high-resolution photos, day or night.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <svg width."20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <div>
+                                    <strong>Licensed for Commercial Operations:</strong>
+                                    <span>Reliable and professional service for business clients.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <div>
+                                    <strong>Secure Cloud Delivery:</strong>
+                                    <span>Footage delivered via a private, secure download link.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <div>
+                                    <strong>Optional Editing Service:</strong>
+                                    <span>In-house editing available to make your footage ready for marketing or social media.</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <p style="text-align: center; margin-top: 1.5rem;"><a href="#" class="drone-technical-details-btn" style="background: none; color: var(--primary-accent); padding: 0; display: inline-block;">View Safety, FAQs & Technical Specifications →</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="section" style="background: var(--dark-bg-secondary);">
+            <div class="container">
+                <div class="section-header">
+                    <h2>My Latest Work</h2>
+                </div>
+                
+                <div class="portfolio-grid">
+                    <a href="https://www.hotchocshots.co.uk" target="_blank" class="portfolio-card" data-is-external="true">
+                        <img src="images/hotchocshots.png" alt="Screenshot preview of the fully responsive Hotchocshots e-commerce website design.">
+                        <div class="portfolio-content">
+                            <span class="portfolio-tag">Web Design</span>
+                            <h3>Hot Choc Shots</h3>
+                            <p>A fully responsive e-commerce website allowing customers to view the menu, order gourmet fudge and hot chocolate sticks, and enjoy a smooth experience on desktop and mobile.</p>
+                        </div>
+                    </a>
+                    
+                    <a href="https://www.carlannison.co.uk" target="_blank" class="portfolio-card" data-is-external="true">
+                        <img src="images/carlannison.png" alt="Screenshot preview of the professional website design for Carl Annison Paving and construction services.">
+                        <div class="portfolio-content">
+                            <span class="portfolio-tag">Web Design</span>
+                            <h3>Carl Annison Paving</h3>
+                            <p>A fully responsive website showcasing paving and construction services, project galleries, and clear contact options. Optimised for desktop and mobile for a smooth browsing experience.</p>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="portfolio-card" data-is-image="true">
+                        <img src="images/finestfoods.png" alt="Preview of the simple, fast static website for Finest Foods, focused on product lists and ordering forms.">
+                        <div class="portfolio-content">
+                            <span class="portfolio-tag">Web Design</span>
+                            <h3>Finest Foods</h3>
+                            <p>A simple static website showcasing products, prices, and downloadable lists. Customers select items via an ordering form, which is sent directly to the supplier for fulfilment and invoicing, keeping the site fast and straightforward.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="shop-promo" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>The Print Shop</h2>
+                    <p>From the air to your wall. I now offer a curated selection of my best aerial prints, perfect for your home or office.</p>
+                </div>
+                
+                <div class="portfolio-grid">
+                    <a href="shop.html" class="portfolio-card">
+                        <img src="images/beach.jpg" alt="Vibrant aerial photograph of the iconic beach huts at Sheringham Beach, Norfolk.">
+                        <div class="portfolio-content">
+                            <span class="portfolio-tag">New in Shop</span>
+                            <h3>Coastal Colours at Sheringham</h3>
+							<p>A vibrant drone photograph of the iconic beach huts at Sheringham Beach against the rugged Norfolk coastline. Adds coastal character to any room.</p>
+                        </div>
+                    </a>
+                    
+                    <a href="shop.html" class="portfolio-card">
+                        <img src="images/lakes.jpg" alt="Stunning aerial view of Keswick and Derwentwater in the Lake District National Park.">
+                        <div class="portfolio-content">
+                            <span class="portfolio-tag">New in Shop</span>
+                            <h3>Lake District Aerial Print</h3>
+							<p>Keswick and Derwentwater from above, showcasing mountain peaks, the serene lake, and lush valleys. A striking statement piece for any home.</p>
+                        </div>
+                    </a>
+                    
+                    <a href="shop.html" class="portfolio-card">
+                        <img src="https://via.placeholder.com/600x400.png?text=Abstract+Gift+Mug" alt="Abstract aerial art printed on a gift mug, available in the online shop.">
+                        <div class="portfolio-content">
+                            <span class="portfolio-tag">Gifts</span>
+                            <h3>Aerial Art Mugs</h3>
+                        </div>
+                    </a>
+                </div>
+                
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="shop.html" class="btn">Explore the Full Gallery</a>
+                </div>
+            </div>
+        </section>
+        
+        
+        <section id="testimonials" class="section" style="background: var(--dark-bg-secondary);">
+            <div class="container">
+                <div class="section-header">
+                    <h2>What My Clients Say</h2>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p>"Mark took my old website that looked like it was stuck in 1995 and turned it into something that feels genuinely modern. The new site is clean, professional and works perfectly on every device. It’s made a huge difference to how my business comes across."</p>
+                    <span class="author">– Jacob, Norfolk Construction Services</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="cta" class="section">
+            <div class="container">
+                <h2>Have a project in mind?</h2>
+                <p>I'm here to help. Whether it's a new website or aerial shots, I'd be happy to talk it through with you.</p>
+                <a href="#" id="cta-form-btn" class="btn btn-secondary">Let's Talk</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col-1">
+                    <a href="#hero" class="logo">Mark Dudley</a>
+                    <p>Bespoke web design for clients worldwide, and fully licensed aerial photography & 4K video for property, projects, marketing and events across the East of England.</p>
+                    </div>
+                
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Work</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#cta">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><a href="mailto:info@markdudley.co.uk">info@markdudley.co.uk</a></li>
+                        <li><a href="tel:+447475862128 ">07475862128 </a></li>
+                        <li>Based in Norfolk, available Worldwide</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 Mark Dudley. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="image-modal" class="modal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modal-image">
+        <div id="modal-caption"></div>
+    </div>
+    
+    <div id="contact-modal" class="modal">
+        <span class="modal-close contact-modal-close">&times;</span> 
+        
+        <div class="modal-content">
+            <h2 id="modal-title" style="color: var(--light-text); text-align: center; margin-top: 0; margin-bottom: 0.5rem;">Let's Discuss Your Project</h2>
+            <p id="modal-subtitle" style="text-align: center; margin-bottom: 2rem;">Fill out the details below, and I'll get back to you within one business day.</p>
+            
+            <form 
+                id="contact-form"
+                action="https://formspree.io/f/xldzlrzq" 
+                method="POST"
+                onsubmit="handleFormSubmit(event)"
+            >
+                <input type="hidden" name="_subject" value="New Project Inquiry from MD Digital" /> 
+                <div style="margin-bottom: 1rem;">
+                    <label for="name">Name*</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div style="margin-bottom: 1rem;">
+                    <label for="email">Email*</label>
+                    <input type="email" id="email" name="_replyto" required>
+                </div>
+                
+                <div style="margin-bottom: 1rem;">
+                    <label for="phone">Phone Number (Optional)</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <label for="details">Tell me your vision: What are you hoping to create (e.g., Website, Video, or Both? Target launch date? Budget range?)*</label>
+                    <textarea id="details" name="project_details" rows="5" required placeholder="Example: I need a 5-page site for my charity. I am looking for some Drone Photography of my home."></textarea>
+                </div>
+                
+                <button type="submit" class="btn" style="width: 100%;">Send Inquiry</button>
+            </form>
+            <div id="form-success-message" style="display: none; text-align: center; padding: 40px 20px;">
+                <svg style="color: var(--primary-accent); margin-bottom: 1.5rem;" width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 11.08V12C21.43 14.88 19.95 17.51 17.77 19.41C15.59 21.31 12.9 22.39 10 22.5C5.03 22.5 0 17.47 0 12C0 6.53 5.03 1.5 10 1.5C12.9 1.5 15.59 2.58 17.77 4.49" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22 4L12 14L8 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h2 style="color: var(--light-text); margin-bottom: 1rem;">Thank You! I have received your inquiry.</h2>
+                <p style="color: var(--secondary-text);">Thanks again for taking the time to write. I personally review every inquiry and promise to send you a thoughtful, personalized reply within one business day.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="technical-modal" class="modal">
+        <span class="modal-close technical-modal-close">&times;</span> 
+        
+        <div class="modal-content">
+            <h2 style="color: var(--light-text); text-align: center; margin-top: 0; margin-bottom: 0.5rem;">FAQs & Technical Specifications (Web)</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">Answers to common questions and details on the technology stack used for managed services.</p>
+            
+            <h4 style="margin-top: 0;">Frequently Asked Questions (FAQs)</h4>
+            <ul>
+                <li>
+                    <strong>How long does a new static site take to build?</strong>
+                    <span>Typically 2-4 weeks, depending on the complexity and how quickly content is provided.</span>
+                </li>
+                <li>
+                    <strong>What is the difference between static and managed hosting?</strong>
+                    <span>All sites are hosted on high-performance cloud servers. **Static hosting** is optimized for speed and simplicity, suitable for brochure sites. **Managed hosting** is required when using dynamic features like online shops or blogs (CMS), as it includes the necessary server environment, security patching, and updates.</span>
+                </li>
+                <li>
+                    <strong>What if I want to switch to a CMS later?</strong>
+                    <span>I can seamlessly upgrade your hosting package and migrate your existing design to a platform like WordPress.</span>
+                </li>
+            </ul>
+            
+            <h4>Technical Specifications for Managed Hosting</h4>
+            <ul>
+                <li>
+                    <strong>CMS Platforms:</strong>
+                    <span>Primarily WordPress, but can accommodate other PHP-based systems on request.</span>
+                </li>
+                <li>
+                    <strong>Server Environment:</strong>
+                    <span>High-performance, managed VPS/Cloud infrastructure, optimized for speed and resilience.</span>
+                </li>
+                <li>
+                    <strong>E-Commerce Integration:</strong>
+                    <span>Managed WooCommerce or Shopify setup, supporting all major payment gateways (Stripe, PayPal, etc.).</span>
+                </li>
+                <li>
+                    <strong>Email and Productivity:</strong>
+                    <span>Professional business email (IMAP/POP3) included. Optional integration and license management for Microsoft 365 (M365).</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="drone-technical-modal" class="modal">
+        <span class="modal-close drone-technical-modal-close">&times;</span> 
+        
+        <div class="modal-content">
+            <h2 style="color: var(--light-text); text-align: center; margin-top: 0; margin-bottom: 0.5rem;">Safety, FAQs & Technical Specifications (Drone)</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">Answers to common questions and details about our CAA compliance, safety procedures, and equipment.</p>
+            
+            <h4 style="margin-top: 0;">Frequently Asked Questions (FAQs)</h4>
+            <ul>
+                <li>
+                    <strong>What happens if the weather is bad?</strong>
+                    <span>Safety is paramount. If wind, rain, or low visibility prevents the flight, we offer a free, no-penalty reschedule at a time convenient for you.</span>
+                </li>
+                <li>
+                    <strong>Do you handle permits and airspace checks?</strong>
+                    <span>Yes. As a CAA A2 qualified pilot, I manage all necessary pre-flight risk assessments, airspace checks, and regulatory permissions for every commercial job.</span>
+                </li>
+                <li>
+                    <strong>How long until I receive the final media?</strong>
+                    <span>Raw footage is often available immediately. Professionally edited photos and video are delivered securely via cloud link within 3-5 business days.</span>
+                </li>
+            </ul>
+            
+            <h4>Technical & Operational Specifications</h4>
+            <ul>
+                <li>
+                    <strong>Camera & Video Quality:</strong>
+                    <span>High-spec, lightweight drone technology capable of **4K video at 60fps** and **50MP stills**, utilizing professional **10-bit colour profiles** (D-Log M) for maximum editing flexibility.</span>
+                </li>
+                <li>
+                    <strong>Operations & Compliance:</strong>
+                    <span>Use of lightweight, registered drone technology allows for operations with enhanced safety standards and increased proximity permissions compared to heavier commercial drones.</span>
+                </li>
+                <li>
+                    <strong>Licensing & Insurance:</strong>
+                    <span>I hold **CAA A2 CofC** qualification and maintain comprehensive Public Liability Insurance for all commercial operations.</span>
+                </li>
+                <li>
+                    <strong>Deliverables:</strong>
+                    <span>Final media is provided in high-quality formats (H.265, JPEG/RAW) via a private, secure download link.</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        async function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const form = document.getElementById('contact-form');
+            const statusDiv = document.getElementById('form-success-message');
+            const formTitle = document.getElementById('modal-title');
+            const formSubtitle = document.getElementById('modal-subtitle');
+
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                form.style.display = 'none';
+                formTitle.style.display = 'none';
+                formSubtitle.style.display = 'none';
+                
+                statusDiv.style.display = 'block';
+
+                setTimeout(() => form.reset(), 500);
+
+            } else {
+                alert('Oops! There was an issue sending your form. Please try again or email me directly.');
+            }
+        }
+        
+        // --- Modal & Navigation Logic ---
+        
+        const contactModal = document.getElementById('contact-modal');
+        const imageModal = document.getElementById("image-modal");
+        const technicalModal = document.getElementById("technical-modal"); // Web Modal
+        const droneTechnicalModal = document.getElementById("drone-technical-modal"); // Drone Modal
+
+        const ctaBtn = document.getElementById('cta-form-btn');
+        const technicalDetailsBtns = document.querySelectorAll('.technical-details-btn'); // Web CTA
+        const droneTechnicalDetailsBtns = document.querySelectorAll('.drone-technical-details-btn'); // Drone CTA
+
+        const cards = document.querySelectorAll('.portfolio-card');
+        const modalImg = document.getElementById("modal-image");
+        const captionText = document.getElementById("modal-caption");
+        const body = document.body;
+        
+        // Modal Closer Utility
+        function closeModal(modalElement) {
+            modalElement.style.display = "none";
+            body.classList.remove('modal-open');
+        }
+        
+        // Open/Close Handlers
+        function setupModalListeners(modalElement, openTriggers) {
+            
+            // Close when 'x' is clicked
+            const closeButton = modalElement.querySelector('.modal-close');
+            if(closeButton) {
+                closeButton.onclick = () => closeModal(modalElement);
+            }
+
+            // Close when user clicks outside the modal
+            modalElement.onclick = (e) => {
+                if (e.target === modalElement) {
+                    closeModal(modalElement);
+                }
+            };
+            
+            // If open triggers are provided (array of elements)
+            if (openTriggers && openTriggers.length > 0) {
+                openTriggers.forEach(trigger => {
+                    trigger.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        
+                        // Reset contact modal state if it's the contact button
+                        if (modalElement === contactModal) {
+                            document.getElementById('contact-form').style.display = 'block';
+                            document.getElementById('modal-title').style.display = 'block';
+                            document.getElementById('modal-subtitle').style.display = 'block';
+                            document.getElementById('form-success-message').style.display = 'none';
+                        }
+                        
+                        modalElement.style.display = "block";
+                        body.classList.add('modal-open');
+                    });
+                });
+            }
+        }
+        
+        // Portfolio Card Click Handler
+        cards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                const isImageModal = card.getAttribute('data-is-image') === 'true';
+                const isExternal = card.getAttribute('data-is-external') === 'true';
+
+                if (isExternal) {
+                    // Let the default link behavior take over (e.g., open client site)
+                    return;
+                }
+                
+                // If it's a link to the shop or another section, prevent image modal opening
+                if (card.href.endsWith('shop.html') || card.href.startsWith('#')) {
+                    return;
+                }
+                
+                e.preventDefault(); 
+                
+                if (isImageModal) {
+                    const img = card.querySelector('img');
+                    const title = card.querySelector('h3').textContent; 
+                    
+                    modalImg.src = img.src; 
+                    captionText.innerHTML = title; 
+                    imageModal.style.display = "block";
+                    body.classList.add('modal-open');
+                }
+            });
+        });
+        
+        // Initialize Modals
+        setupModalListeners(contactModal, [ctaBtn]);
+        setupModalListeners(imageModal, null); 
+        setupModalListeners(technicalModal, technicalDetailsBtns); // Opens website modal
+        setupModalListeners(droneTechnicalModal, droneTechnicalDetailsBtns); // Opens drone modal
+
+        
+        // Mobile Navigation Toggle
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileNav = document.getElementById('mobile-nav-menu');
+        
+        function toggleMenu() {
+            mobileNav.classList.toggle('open');
+            body.classList.toggle('modal-open'); 
+        }
+
+        hamburgerBtn.addEventListener('click', toggleMenu);
+        mobileNav.querySelector('.mobile-nav-close').addEventListener('click', toggleMenu);
+        
+        const navLinks = mobileNav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+    </script>
+
+</body>
+</html>

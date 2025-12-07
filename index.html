@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html lang="en-GB"> 
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MD Digital - Web Design & Aerial Videography</title>
+    <title>Mark Dudley - Launching Soon</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 
     <style>
-        
         :root {
             --primary-accent: #007bff;
             --dark-bg: #121212;
             --dark-bg-secondary: #1e1e1e;
             --light-text: #f4f4f4;
             --secondary-text: #aaaaaa;
-            --nav-height: 70px;
         }
 
         * {
@@ -26,440 +24,80 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
             background: var(--dark-bg);
             color: var(--light-text);
             line-height: 1.6;
-        }
-
-        h1, h2, h3, h4 {
-            line-height: 1.2;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        h1 { font-size: 2.5rem; font-weight: 900; }
-        h2 { font-size: 2rem; }
-        h3 { font-size: 1.5rem; color: var(--light-text); } 
-
-        p {
-            margin-bottom: 1rem;
-            color: var(--secondary-text);
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-
-        a {
-            color: var(--primary-accent);
-            text-decoration: none;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
         }
 
         .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        .section {
-            padding: 5rem 0;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.8rem 1.8rem;
-            background: var(--primary-accent);
-            color: #fff;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: opacity 0.3s ease;
-        }
-
-        .btn:hover {
-            opacity: 0.85;
-        }
-
-        .btn-secondary {
-            background: #fff;
-            color: var(--dark-bg);
-        }
-        
-        .main-header {
-            position: sticky;
-            top: 0;
-            left: 0;
+            max-width: 600px;
             width: 100%;
-            background: rgba(18, 18, 18, 0.85);
-            backdrop-filter: blur(10px);
-            z-index: 100;
-            height: var(--nav-height);
-            border-bottom: 1px solid #333;
+            padding: 3rem 1.5rem;
+            background: var(--dark-bg-secondary);
+            border-radius: 12px;
+            border: 1px solid #333;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            text-align: left; 
         }
         
-        .main-header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 100%;
-        }
-
         .logo {
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: 900;
             color: var(--light-text);
-        }
-
-        .nav-links {
-            display: none;
-            list-style: none;
-        }
-        .nav-links li {
-            margin-left: 1.5rem;
-        }
-        .nav-links a {
-            color: var(--light-text);
-            font-weight: 700;
-        }
-        .nav-links a.btn {
-            color: #fff;
-        }
-
-        .hamburger {
+            text-decoration: none;
             display: block;
-            cursor: pointer;
-            background: none;
-            border: none;
-        }
-        .hamburger svg {
-            stroke: var(--light-text);
-        }
-
-        .mobile-nav {
-            display: block;
-            position: fixed;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100vh;
-            background: var(--dark-bg);
-            z-index: 99;
-            transition: left 0.3s ease-in-out;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-        
-        .mobile-nav.open {
-            left: 0;
-        }
-
-        .mobile-nav-links {
-            list-style: none;
-            text-align: center;
-        }
-        
-        .mobile-nav-links li {
             margin-bottom: 2rem;
-        }
-        
-        .mobile-nav-links a {
-            color: var(--light-text);
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-        
-        .mobile-nav-close {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            background: none;
-            border: none;
-        }
-        .mobile-nav-close svg {
-            stroke: var(--light-text);
-        }
-
-        #hero {
-            background-image: 
-                linear-gradient(rgba(18, 18, 18, 0.6), rgba(18, 18, 18, 0.6)), 
-                url('images/hero.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            height: 90vh; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             text-align: center;
-            padding: 0 1.5rem;
         }
 
-
-        #hero h1 {
-            color: #fff;
-            margin-bottom: 1rem;
-        }
-
-        #hero p {
-            font-size: 1.25rem;
-            color: var(--light-text);
-            max-width: 600px;
-            margin-bottom: 2rem;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: var(--dark-bg-secondary);
-            padding: 2.5rem 2rem;
-            border-radius: 8px;
-            border: 1px solid #333;
-        }
-        
-        .service-card h3 {
-            margin-bottom: 1.5rem;
-        }
-
-        .service-card ul {
-            list-style: none;
-            margin-top: 1.5rem;
-        }
-
-        .service-card li {
-            color: var(--secondary-text);
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: flex-start;
-        }
-        
-        .service-card li:last-child {
-            margin-bottom: 0;
-        }
-        
-        .service-card li svg {
-            stroke: var(--primary-accent);
-            min-width: 20px;
-            margin-right: 0.75rem;
-            margin-top: 0.15rem;
-        }
-
-        .service-card li div {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.5;
-        }
-
-        .service-card li strong {
-            color: var(--light-text);
-            font-weight: 700;
-            margin-bottom: 0.25rem;
-        }
-        
-        .service-card li span {
-            color: var(--secondary-text);
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-
-        .portfolio-card {
-            background: var(--dark-bg-secondary);
-            border-radius: 8px;
-            border: 1px solid #333;
-            overflow: hidden;
-            cursor: pointer; 
-        }
-        
-        .portfolio-card img {
-            border-radius: 8px 8px 0 0;
-            display: block;
-            transition: transform 0.3s ease;
-            height: 200px; 
-            width: 100%; 
-            object-fit: cover; 
-        }
-        
-        .portfolio-card:hover img {
-            transform: scale(1.05);
-        }
-
-        .portfolio-content {
-            padding: 1.5rem;
-        }
-
-        .portfolio-tag {
-            display: inline-block;
-            background: var(--primary-accent);
-            color: #fff;
-            padding: 0.25rem 0.75rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-        }
-        
-        .portfolio-card h3 {
-            color: var(--light-text);
-            margin: 0;
-            margin-bottom: 0.5rem;
-        }
-        
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .testimonial-card {
-            background: var(--dark-bg-secondary);
-            padding: 2.5rem 2rem;
-            border-left: 5px solid var(--primary-accent);
-            border-radius: 8px;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .testimonial-card p {
-            font-size: 1.25rem;
-            font-style: italic;
-            color: var(--light-text);
-            margin-bottom: 1rem;
-        }
-        
-        .testimonial-card .author {
-            font-weight: 700;
+        .status-icon {
             color: var(--primary-accent);
-            font-style: normal;
+            display: block;
+            margin: 0 auto 1.5rem auto;
+            text-align: center;
         }
 
-        #cta {
-            background: var(--primary-accent);
+        h1 {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            color: var(--light-text);
             text-align: center;
         }
         
-        #cta h2 {
-            color: #fff;
-        }
-        #cta p {
-            color: #fff;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto 2rem auto;
-        }
-        
-        #cta .btn {
-            background: #fff;
-            color: var(--dark-bg);
-            cursor: pointer; 
-        }
-
-        footer {
-            padding: 4rem 0 2rem 0;
-            background: var(--dark-bg-secondary);
-        }
-        
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-bottom: 3rem;
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--light-text);
             text-align: center;
         }
-        
-        .footer-col-1 p {
-            max-width: 300px;
-            margin: 1rem auto;
+
+        .intro-text p {
+            font-size: 1.1rem;
+            color: var(--secondary-text);
+            margin-bottom: 2rem;
+            text-align: center;
         }
-        
-        .footer-col h4 {
+
+        .intro-text strong {
             color: var(--light-text);
             font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        
-        .footer-col ul {
-            list-style: none;
-        }
-        .footer-col li {
-            margin-bottom: 0.5rem;
-        }
-        .footer-col a {
-            color: var(--secondary-text);
-            transition: color 0.3s ease;
-        }
-        .footer-col a:hover {
-            color: var(--light-text);
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            color: var(--secondary-text);
-            font-size: 0.9rem;
-            border-top: 1px solid #333;
-            padding-top: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 200;
-            padding-top: 60px;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.9);
         }
 
-        .modal-content {
-            margin: auto;
-            display: block;
-            width: 90%;
-            max-width: 900px;
-            animation-name: zoom;
-            animation-duration: 0.6s;
-        }
-        
-        #contact-modal .modal-content {
-            max-width: 500px;
-            padding: 30px;
-            background: var(--dark-bg-secondary);
-            border-radius: 8px;
-        }
-        
-        .modal-content input[type="text"], 
-        .modal-content input[type="email"], 
-        .modal-content input[type="tel"], 
-        .modal-content textarea {
+        input[type="text"], 
+        input[type="email"], 
+        input[type="tel"], 
+        textarea {
             width: 100%; 
             padding: 10px; 
             border-radius: 4px; 
@@ -470,418 +108,72 @@
             font-family: inherit;
         }
         
-        .modal-content label {
+        label {
             display: block; 
             margin-bottom: 0.5rem; 
             color: var(--light-text);
             font-weight: 700;
         }
-
-
-        #modal-caption {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 700px;
-            text-align: center;
-            color: #ccc;
-            padding: 10px 0;
-            height: 50px;
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-
-        .modal-close:hover,
-        .modal-close:focus {
-            color: #bbb;
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background: var(--primary-accent);
+            color: #fff;
+            border-radius: 50px;
             text-decoration: none;
+            font-weight: 700;
+            transition: opacity 0.3s ease;
             cursor: pointer;
+            border: none;
         }
 
-        @keyframes zoom {
-            from {transform:scale(0)} 
-            to {transform:scale(1)}
+        .btn:hover {
+            opacity: 0.85;
         }
         
-        @media (min-width: 768px) {
-            h1 { font-size: 3.5rem; }
-            h2 { font-size: 2.5rem; }
-
-            #hero {
-                background-image: 
-                    linear-gradient(rgba(18, 18, 18, 0.6), rgba(18, 18, 18, 0.6)), 
-                    url('https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'), 
-                    url('images/hero.jpg');
-                    
-                background-size: 
-                    cover,
-                    50% 100%,
-                    50% 100%;
-                    
-                background-position: 
-                    center,
-                    left center,
-                    right center;
-            }
-
-            .hamburger, .mobile-nav {
-                display: none;
-            }
-            .nav-links {
-                display: flex;
-                align-items: center;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            .portfolio-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            .about-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr 1fr 1fr;
-                text-align: left;
-            }
-            .footer-col-1 p {
-                margin: 1rem 0;
-            }
+        .form-section {
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            margin-top: 1.5rem;
         }
         
-        @media (min-width: 1024px) {
-            .portfolio-grid {
-                grid-template-columns: 1fr 1fr 1fr;
-            }
+        #form-success-message {
+            text-align: center; 
+            padding: 40px 20px;
         }
-        
-        @media only screen and (max-width: 700px){
-            .modal-content {
-                width: 100%;
-            }
+        #form-success-message svg {
+            color: var(--primary-accent); 
+            margin-bottom: 1.5rem;
+        }
+        #form-success-message h2 {
+            color: var(--light-text); 
+            margin-bottom: 1rem;
+        }
+        #form-success-message p {
+            color: var(--secondary-text);
         }
 
+        @media (min-width: 600px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <header class="main-header">
-        <div class="container">
-            <a href="#hero" class="logo">MD Digital</a>
+    <div class="container">
+        <a href="#" class="logo">Mark Dudley</a>
 
-            <ul class="nav-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Work</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="login.html" class="btn">Client Portal</a></li>
-            </ul>
-
-            <button class="hamburger" id="hamburger-btn" aria-label="Open navigation menu">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4 6H20M4 12H20M4 18H20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
+        <h1>A Personal Partner for Your Digital Needs</h1>
+        <div class="intro-text">
+	<p>A new site is being prepared to better present my services. For business enquiries related to web design, managed web services, or drone photography, please use the contact form below.</p>
         </div>
-    </header>
-
-    <nav class="mobile-nav" id="mobile-nav-menu">
-        <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close navigation menu">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M18 6L6 18M6 6L18 18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </button>
-        <ul class="mobile-nav-links">
-            <li><a href="#services">Services</a></li>
-            <li><a href="#portfolio">Work</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="#about">About</a></li>
-            <a href="login.html" class="btn">Client Portal</a>
-        </ul>
-    </nav>
-
-
-    <main>
-
-        <section id="hero">
-            <h1>Elevate Your Digital Presence.</h1>
-            <p>I build bespoke, high-performance websites and capture stunning 4K aerial visuals. From ground to cloud, your project deserves to look its best.</p>
-            <a href="#portfolio" class="btn">View My Work</a>
-        </section>
-
-        <section id="services" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Digital Solutions, From Ground to Cloud.</h2>
-                </div>
-                
-                <div class="services-grid"> 
-                    
-                    <div class="service-card">
-                        <h3>Bespoke Web Design & Management</h3>
-                        
-                        <p>I build fast, responsive, and modern websites for start-ups and small businesses. If your current site feels out of date, I can create something clean and professional that works on any device.</p>
-                        
-                        <ul>
-                            <li>
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                <div>
-                                    <strong>Truly Bespoke:</strong>
-                                    <span>A site built to your requirements, from concept to completion.</span>
-                                </div>
-                            </li>
-                            <li>
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                <div>
-                                    <strong>Start-Ups & Small Business Ready:</strong>
-                                    <span>Clear, simple websites designed to get you online quickly.</span>
-                                </div>
-                            </li>
-                            <li>
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                <div>
-                                    <strong>Flexible Handover:</strong>
-                                    <span>I can manage the site for you, or hand everything over if you prefer full control.</span>
-                                </div>
-                            </li>
-                            <li>
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                <div>
-                                    <strong>Professional Email & Microsoft 365 Setup:</strong>
-                                    <span>Business-grade email with integration across OneDrive, Teams, and other M365 tools.</span>
-                                </div>
-                            </li>
-                            <li>
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                <div>
-                                    <strong>On-Call Support:</strong>
-                                    <span>Direct help for your website, hosting, email setup, and small technical issues linked to your project.</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="service-card">
-                        <h3>Aerial Photography & Video</h3>
-                        <p>High-quality aerial photography and 4K video for property, projects, marketing, or events. Delivered safely, professionally, and ready to use.</p>
-                        
-                        <ul>
-                            <li>
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                <div>
-                                    <strong>Fully Insured & A2 CofC Qualified:</strong>
-                                    <span>Safe and compliant operations for every job.</span>
-                                </div>
-                            </li>
-                            <li>
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                <div>
-                                    <strong>High-Quality Drone Footage:</strong>
-                                    <span>Crisp 4K video and high-resolution photos, day or night.</span>
-                                </div>
-                            </li>
-                            <li>
-                                <svg width."20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                <div>
-                                    <strong>Licensed for Commercial Operations:</strong>
-                                    <span>Reliable and professional service for business clients.</span>
-                                </div>
-                            </li>
-                            <li>
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                <div>
-                                    <strong>Secure Cloud Delivery:</strong>
-                                    <span>Footage delivered via a private, secure download link.</span>
-                                </div>
-                            </li>
-                            <li>
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                <div>
-                                    <strong>Video Editing Available:</strong>
-                                    <span>In-house editing to make your footage ready for marketing or social media.</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="portfolio" class="section" style="background: var(--dark-bg-secondary);">
-            <div class="container">
-                <div class="section-header">
-                    <h2>My Latest Work</h2>
-                </div>
-                
-                <div class="portfolio-grid">
-                    <a href="#" class="portfolio-card" data-url="https://www.hotchocshots.co.uk">
-                        <img src="images/hotchocshots.png" alt="Web design preview for Hotchocshots">
-                        <div class="portfolio-content">
-                            <span class="portfolio-tag">Web Design</span>
-                            <h3>Hot Choc Shots</h3>
-                            <p>A fully responsive website for Hot Choc Shots, letting customers view the menu, order gourmet fudge and hot chocolate sticks, and enjoy a smooth experience on desktop and mobile.</p>
-                        </div>
-                    </a>
-                    
-                    <a href="#" class="portfolio-card" data-url="https://www.carlannison.co.uk">
-                        <img src="images/carlannison.png" alt="Web design preview for Carl Annison Paving">
-                        <div class="portfolio-content">
-                            <span class="portfolio-tag">Web Design</span>
-                            <h3>Carl Annison Paving</h3>
-                            <p>A fully responsive website for Carl Annison Paving, showcasing services, project galleries, and contact options. Optimised for desktop and mobile for a smooth browsing experience.</p>
-                        </div>
-                    </a>
-                    
-                    <a href="#" class="portfolio-card">
-                        <img src="images/finestfoods.png" alt="Project 3">
-                        <div class="portfolio-content">
-                            <span class="portfolio-tag">Web Design</span>
-                            <h3>Finest Foods</h3>
-                            <p>A simple static website showcasing products, prices, and downloadable lists. Customers select items via an ordering form, which is sent directly to the supplier for fulfilment and invoicing, keeping the site fast and straightforward.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
         
-        <section id="shop-promo" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>The Print Shop</h2>
-                    <p>From the air to your wall. I now offer a curated selection of my best aerial prints, perfect for your home or office.</p>
-                </div>
-                
-                <div class="portfolio-grid">
-                    <a href="shop.html" class="portfolio-card">
-                        <img src="images/beach.jpg" alt="Seaside print in a frame">
-                        <div class="portfolio-content">
-                            <span class="portfolio-tag">New in Shop</span>
-                            <h3>Coastal Colours at Sheringham</h3>
-							<p>A vibrant drone photograph of the iconic beach huts at Sheringham Beach against the rugged Norfolk coastline. Adds coastal character to any room.</p>
-                        </div>
-                    </a>
-                    
-                    <a href="shop.html" class="portfolio-card">
-                        <img src="images/lakes.jpg" alt="Cityscape on canvas">
-                        <div class="portfolio-content">
-                            <span class="portfolio-tag">New in Shop</span>
-                            <h3>Lake District Aerial Print</h3>
-							<p>Keswick and Derwentwater from above, showcasing mountain peaks, the serene lake, and lush valleys. A striking statement piece for any home.</p>
-                        </div>
-                    </a>
-                    
-                    <a href="shop.html" class="portfolio-card">
-                        <img src="https://via.placeholder.com/600x400.png?text=Abstract+Gift+Mug" alt="Photo on a gift mug">
-                        <div class="portfolio-content">
-                            <span class="portfolio-tag">Gifts</span>
-                            <h3>Aerial Art Mugs</h3>
-                        </div>
-                    </a>
-                </div>
-                
-                <div style="text-align: center; margin-top: 3rem;">
-                    <a href="shop.html" class="btn">Explore the Full Gallery</a>
-                </div>
-            </div>
-        </section>
-        <section id="about" class="section">
-            <div class="container">
-                <div class="about-grid">
-                    <div class="about-image">
-                        <img src="images/profile.png" alt="A photo of Mark">
-</div>
-<div class="about-content">
-    <h2>A Personal Partner for Your Digital Needs</h2>
-    <p>Hi, I’m Mark. I run MD Digital and stay hands-on with every project. I look after the core work myself and bring in support for specialist tasks when it benefits the job.</p>
-    <p>I’m upfront, practical, and focused on getting you a result that works.</p>
-</div>
-</div>
-</div>
 
-        </section>
-        
-        <section id="testimonials" class="section" style="background: var(--dark-bg-secondary);">
-            <div class="container">
-                <div class="section-header">
-                    <h2>What My Clients Say</h2>
-                </div>
-                
-                <div class="testimonial-card">
-                    <p>"Mark took my old website that looked like it was stuck in 1995 and turned it into something that feels genuinely modern. The new site is clean, professional and works perfectly on every device. It’s made a huge difference to how my business comes across."</p>
-                    <span class="author">– Jacob, Norfolk Construction Services</span>
-                </div>
-            </div>
-        </section>
-
-        <section id="cta" class="section">
-            <div class="container">
-                <h2>Have a project in mind?</h2>
-                <p>I'm here to help. Whether it's a new website or aerial shots, I'd be happy to talk it through with you.</p>
-                <a href="#" id="cta-form-btn" class="btn btn-secondary">Let's Talk</a>
-            </div>
-        </section>
-
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col-1">
-                    <a href="#hero" class="logo">MD Digital</a>
-                    <p>Bespoke web design for clients worldwide, and aerial photography & 4K video for property, projects, marketing and events across the East of England.</p>
-                    </div>
-                
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#portfolio">Work</a></li>
-                        <li><a href="shop.html">Shop</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#cta">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>Contact Info</h4>
-                    <ul>
-                        <li><a href="mailto:info@markdudley.co.uk">info@markdudley.co.uk</a></li>
-                        <li><a href="tel:+447475862128 ">07475862128 </a></li>
-                        <li>Based in Norfolk, available Worldwide</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>© 2025 MD Digital. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <div id="image-modal" class="modal">
-        <span class="modal-close">&times;</span>
-        <img class="modal-content" id="modal-image">
-        <div id="modal-caption"></div>
-    </div>
-    
-    <div id="contact-modal" class="modal">
-        <span class="modal-close contact-modal-close">&times;</span> 
-        
-        <div class="modal-content">
-            <h2 id="modal-title" style="color: var(--light-text); text-align: center; margin-top: 0; margin-bottom: 0.5rem;">Let's Discuss Your Project</h2>
-            <p id="modal-subtitle" style="text-align: center; margin-bottom: 2rem;">Fill out the details below, and I'll get back to you within one business day.</p>
+        <div class="form-section">
+            <h2>Let's Talk</h2>
             
             <form 
                 id="contact-form"
@@ -889,7 +181,7 @@
                 method="POST"
                 onsubmit="handleFormSubmit(event)"
             >
-                <input type="hidden" name="_subject" value="New Project Inquiry from MD Digital" /> 
+                <input type="hidden" name="_subject" value="New Project Inquiry (Pre-Launch Page)" /> 
                 <div style="margin-bottom: 1rem;">
                     <label for="name">Name*</label>
                     <input type="text" id="name" name="name" required>
@@ -906,20 +198,25 @@
                 </div>
                 
                 <div style="margin-bottom: 1.5rem;">
-                    <label for="details">Tell me your vision: What are you hoping to create (e.g., Website, Video, or Both? Target launch date? Budget range?)*</label>
-                    <textarea id="details" name="project_details" rows="5" required placeholder="Example: I need a 5-page site for my charity. I am looking for some Drone Photography of my home."></textarea>
+                    <label for="details">Project Details / Support Need*</label>
+                    <textarea id="details" name="project_details" rows="5" required placeholder="Example: I need drone photography of a property next week. or I need a new 5-page static website."></textarea>
                 </div>
                 
-                <button type="submit" class="btn" style="width: 100%; border: none;">Send Inquiry</button>
+                <button type="submit" class="btn" style="width: 100%;">Send Inquiry</button>
             </form>
-            <div id="form-success-message" style="display: none; text-align: center; padding: 40px 20px;">
-                <svg style="color: var(--primary-accent); margin-bottom: 1.5rem;" width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            
+            <div id="form-success-message" style="display: none;">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M22 11.08V12C21.43 14.88 19.95 17.51 17.77 19.41C15.59 21.31 12.9 22.39 10 22.5C5.03 22.5 0 17.47 0 12C0 6.53 5.03 1.5 10 1.5C12.9 1.5 15.59 2.58 17.77 4.49" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M22 4L12 14L8 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                <h2 style="color: var(--light-text); margin-bottom: 1rem;">Thank You! I have received your inquiry.</h2>
-                <p style="color: var(--secondary-text);">Thanks again for taking the time to write. I personally review every inquiry and promise to send you a thoughtful, personalized reply within one business day.</p>
+                <h2>Thank You!</h2>
+                <p>I have received your message and will be in touch as soon as possible.</p>
             </div>
+        </div>
+        
+        <div style="margin-top: 3rem; text-align: center;">
+            <p style="font-size: 0.8rem; margin-bottom: 0; color: var(--secondary-text);">&copy; 2025 Mark Dudley</p>
         </div>
     </div>
 
@@ -929,8 +226,10 @@
             
             const form = document.getElementById('contact-form');
             const statusDiv = document.getElementById('form-success-message');
-            const formTitle = document.getElementById('modal-title');
-            const formSubtitle = document.getElementById('modal-subtitle');
+
+            const submitButton = form.querySelector('button[type="submit"]');
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
 
             const response = await fetch(form.action, {
                 method: form.method,
@@ -942,95 +241,14 @@
 
             if (response.ok) {
                 form.style.display = 'none';
-                formTitle.style.display = 'none';
-                formSubtitle.style.display = 'none';
-                
                 statusDiv.style.display = 'block';
-
                 setTimeout(() => form.reset(), 500);
-
             } else {
-                alert('Oops! There was an issue sending your form. Please try again or email me directly.');
+                alert('Oops! There was an issue sending your form. Please check your details or email me directly.');
+                submitButton.textContent = 'Send Inquiry';
+                submitButton.disabled = false;
             }
         }
-        
-        // --- Modal & Navigation Logic ---
-        
-        const contactModal = document.getElementById('contact-modal');
-        const imageModal = document.getElementById("image-modal");
-        const ctaBtn = document.getElementById('cta-form-btn');
-        const cards = document.querySelectorAll('.portfolio-card');
-        const modalImg = document.getElementById("modal-image");
-        const captionText = document.getElementById("modal-caption");
-        
-        // Modal Closer Utility
-        function closeModal(modalElement) {
-            modalElement.style.display = "none";
-        }
-        
-        // Open/Close Handlers
-        function setupModalListeners(modalElement, openTrigger) {
-            
-            // Close when 'x' is clicked
-            modalElement.querySelector('.modal-close').onclick = () => closeModal(modalElement);
-
-            // Close when user clicks outside the modal
-            modalElement.onclick = (e) => {
-                if (e.target === modalElement) {
-                    closeModal(modalElement);
-                }
-            };
-            
-            // If an open trigger is provided (e.g., CTA button or Portfolio card)
-            if (openTrigger) {
-                openTrigger.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    
-                    // Reset contact modal state if it's the contact button
-                    if (modalElement === contactModal) {
-                        document.getElementById('contact-form').style.display = 'block';
-                        document.getElementById('modal-title').style.display = 'block';
-                        document.getElementById('modal-subtitle').style.display = 'block';
-                        document.getElementById('form-success-message').style.display = 'none';
-                    }
-                    
-                    modalElement.style.display = "block";
-                });
-            }
-        }
-        
-        // Portfolio Card Click Handler
-        cards.forEach(card => {
-            card.addEventListener('click', (e) => {
-                e.preventDefault(); 
-                const img = card.querySelector('img');
-                const title = card.querySelector('h3').textContent; 
-                
-                modalImg.src = img.src; 
-                captionText.innerHTML = title; 
-                imageModal.style.display = "block";
-            });
-        });
-        
-        // Initialize Modals
-        setupModalListeners(contactModal, ctaBtn);
-        setupModalListeners(imageModal, null); // Portfolio modal is opened by cards
-        
-        // Mobile Navigation Toggle
-        const hamburgerBtn = document.getElementById('hamburger-btn');
-        const mobileNav = document.getElementById('mobile-nav-menu');
-        
-        function toggleMenu() {
-            mobileNav.classList.toggle('open');
-        }
-
-        hamburgerBtn.addEventListener('click', toggleMenu);
-        mobileNav.querySelector('.mobile-nav-close').addEventListener('click', toggleMenu);
-        
-        const navLinks = mobileNav.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', toggleMenu);
-        });
     </script>
 
 </body>
